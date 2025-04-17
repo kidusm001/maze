@@ -14,7 +14,7 @@ class Line():
         canvas.create_line(self.__p1.x, self.__p1.y, self.__p2.x, self.__p2.y, fill=fill_color, width=2)
 
 class Cell():
-    def __init__(self, win):
+    def __init__(self, win=None):
         self._x1 = None
         self._y1 = None
         self._x2 = None
@@ -26,6 +26,8 @@ class Cell():
         self.has_bottom_wall = True
 
     def draw(self, x1, y1, x2, y2):
+        if self._win is None:
+            return
         self._x1 = x1
         self._y1 = y1
         self._x2 = x2
@@ -44,6 +46,8 @@ class Cell():
             self._win.draw_line(bottom_wall)
         
     def draw_move(self, to_cell, undo=False):
+        if self._win is None:
+            return
         own_x_mid = (self._x1 + self._x2) / 2
         own_y_mid = (self._y1 + self._y2) / 2
         to_x_mid = (to_cell._x1 + to_cell._x2) / 2

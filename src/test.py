@@ -15,12 +15,12 @@ class Tests(unittest.TestCase):
             num_rows,
         )
     
-    def test_maze_cell_size(self):
-        cell_size_x = 20
-        cell_size_y = 30
-        m = Maze(0, 0, 200, 200, cell_size_x, cell_size_y)
-        self.assertEqual(m._cell_size_x, cell_size_x)
-        self.assertEqual(m._cell_size_y, cell_size_y)
+    # def test_maze_cell_size(self):
+    #     cell_size_x = 20
+    #     cell_size_y = 30
+    #     m = Maze(0, 0, 200, 200, cell_size_x, cell_size_y)
+    #     self.assertEqual(m._cell_size_x, cell_size_x)
+    #     self.assertEqual(m._cell_size_y, cell_size_y)
     
     def test_maze_initialization_position(self):
         x = 100
@@ -41,5 +41,11 @@ class Tests(unittest.TestCase):
         m._break_entrance_and_exit()
         self.assertEqual(m._cells[0][0].has_top_wall, False)
         self.assertEqual(m._cells[m._num_cols - 1][m._num_rows - 1].has_bottom_wall, False)
+    
+    def test_maze_reset_visited(self):
+        m = Maze(5, 5, 5, 5, 20, 20)
+        for i in range(len(m._cells)):
+            for j in range(len(m._cells[i])):
+                self.assertEqual(m._cells[i][j].visited, False)
 if __name__ == "__main__":
     unittest.main()

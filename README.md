@@ -33,7 +33,18 @@ cell_size_y = 20  # Height of each cell
 ```
 
 ## Dependencies
-This project uses the Tkinter library for GUI rendering. Tkinter is included with most Python installations, but if it's not available, you may need to install it separately.
+This project uses the Tkinter library for GUI rendering. Tkinter is included with most Python installations, but if it's not available, you can install it as follows:
+
+### Installing Tkinter
+- On Debian/Ubuntu-based systems:
+  ```bash
+  sudo apt-get install python3-tk
+  ```
+- On macOS (if not already included):
+  ```bash
+  brew install python-tk
+  ```
+- On Windows: Tkinter is included with the standard Python installer. Ensure you have Python installed from [python.org](https://www.python.org/).
 
 ## License
 This project is licensed under the MIT License.

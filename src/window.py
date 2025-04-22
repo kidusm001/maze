@@ -22,5 +22,8 @@ class Window():
     def close(self):
         self.__window_run = False
 
-    def draw_line(self, line: Line, fill_color="black"):
-        line.draw(self.__canvas, fill_color)
+    def draw_line(self, line: Line, fill_color="black", width=3):
+        line.draw(self.__canvas, fill_color, width)
+
+    def draw_circle(self, x, y, r, fill_color="red"):
+        self.__canvas.create_oval(x - r, y - r, x + r, y + r, fill=fill_color, outline=fill_color)

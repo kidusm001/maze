@@ -10,8 +10,8 @@ class Line():
         self.__p1 = p1
         self.__p2 = p2
 
-    def draw(self, canvas: Canvas, fill_color="black"):
-        canvas.create_line(self.__p1.x, self.__p1.y, self.__p2.x, self.__p2.y, fill=fill_color, width=2)
+    def draw(self, canvas: Canvas, fill_color="black", width=3):
+        canvas.create_line(self.__p1.x, self.__p1.y, self.__p2.x, self.__p2.y, fill=fill_color, width=width)
 
 class Cell():
     def __init__(self, win=None):
@@ -66,7 +66,7 @@ class Cell():
         to_x_mid = (to_cell._x1 + to_cell._x2) / 2
         to_y_mid = (to_cell._y1 + to_cell._y2) / 2
         move_line = Line(Point(own_x_mid, own_y_mid), Point(to_x_mid, to_y_mid))
-        fill_color = "gray" if undo else "red"
+        fill_color = "lightgrey" if undo else "red" 
         self._win.draw_line(move_line, fill_color)
 
 
